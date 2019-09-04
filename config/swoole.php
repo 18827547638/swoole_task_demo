@@ -17,7 +17,7 @@ use think\facade\Env;
 return [
     // 扩展自身配置
     'host'                  => '0.0.0.0', // 监听地址
-    'port'                  => 9501, // 监听端口
+    'port'                  => 9502, // 监听端口
     'mode'                  => '', // 运行模式 默认为SWOOLE_PROCESS
     'sock_type'             => '', // sock type 默认为SWOOLE_SOCK_TCP
     'server_type'           => 'http', // 服务类型 支持 http websocket
