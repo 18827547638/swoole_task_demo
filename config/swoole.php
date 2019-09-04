@@ -34,4 +34,5 @@ return [
     'timer'                 => true,//是否开启系统定时器
     'interval'              => 500,//系统定时器 时间间隔
     'task_worker_num'       => 1,//swoole 任务工作进程数量
+    'cache_size'            => 1024
 ];
