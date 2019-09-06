@@ -22,7 +22,7 @@ class SwooleClient
 
     public function connect()
     {
-        if (!$this->client->connect("127.0.0.1", 9501, 1)) {
+        if (!$this->client->connect("127.0.0.1", 9502, 1)) {
             throw new Exception(sprintf('Swoole Error: %s', $this->client->errCode));
         }
     }
