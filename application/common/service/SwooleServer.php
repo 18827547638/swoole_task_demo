@@ -29,7 +29,7 @@ class SwooleServer extends Server
     {
         echo "Get Message From Client {$fd}:{$data}\n";
         // send a task to task worker.
-        file_put_contents('zg_swwole',$data);
+        file_put_contents('zg_swwole.txt',$data);
         $serv->task($data);
     }
 
