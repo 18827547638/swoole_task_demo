@@ -13,13 +13,13 @@ return [
     // 数据库类型
     'type' => 'mysql',
     // 服务器地址
-    'hostname' => '47.244.109.235',
+    'hostname' => '',
     // 数据库名
-    'database' => 'gl_lmsggdc_com',
+    'database' => '',
     // 用户名
-    'username' => 'gl_lmsggdc_com',
+    'username' => '',
     // 密码
-    'password' => 'A787jzrpk3XKxTpd',
+    'password' => '',
     // 端口
     'hostport' => '',
     // 连接dsn
