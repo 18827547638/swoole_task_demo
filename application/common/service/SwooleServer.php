@@ -15,10 +15,10 @@ class SwooleServer extends Server
 {
     private $serv;
     protected $host = '0.0.0.0';
-    protected $port = 9502;
+    protected $port = 9508;
     protected $serverType = 'socket';
     protected $mode = SWOOLE_PROCESS;
-    protected $sockType = SWOOLE_SOCK_TCP;
+    protected $socketType = SWOOLE_SOCK_TCP;
     protected $option = [
         'worker_num'=> 4,
 //        'daemonize'	=> true,
