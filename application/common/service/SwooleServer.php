@@ -36,7 +36,7 @@ class SwooleServer extends Server
     public function onTask($serv, $task_id, $from_id, $data)
     {
         $array = json_decode($data, true);
-        file_put_contents('zg_swwole',$array);
+        db('system')->insertGetId(['type'=>'swoole','key'=>'测试','value'=>time()]);
         return time();
 //        if ($array['url']) {
 //            return $this->httpGet($array['url'], $array['param']);
