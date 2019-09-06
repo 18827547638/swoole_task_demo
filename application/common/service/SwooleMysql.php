@@ -14,7 +14,7 @@ class SwooleMysql
     private $param;
     public $db;
     public function __construct() {
-        $this->db = new \swoole_mysql;
+        $this->db = new \swoole_mysql();
         $this->param = array(
             'host' => '127.0.0.1',
             'user' => 'root',
