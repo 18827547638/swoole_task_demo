@@ -25,7 +25,7 @@ class SwooleServer extends Server
         'backlog'	=> 128
     ];
 
-    public function onReceive(swoole_server $serv, $fd, $from_id, $data)
+    public function onReceive($serv, $fd, $from_id, $data)
     {
         $task_id = $serv->task("Async");
         echo "开始投递异步任务 id=$task_id\n";
