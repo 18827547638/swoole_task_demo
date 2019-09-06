@@ -22,7 +22,8 @@ class SwooleServer extends Server
     protected $option = [
         'worker_num'=> 4,
 //        'daemonize'	=> true,
-        'backlog'	=> 128
+        'backlog'	=> 128,
+        'task_worker_num' => 4
     ];
 
     public function onReceive($serv, $fd, $from_id, $data)
