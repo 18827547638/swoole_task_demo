@@ -13,11 +13,12 @@ class Index
 {
     public function hello()
     {
+        $test = request()->param('test', 0);
         $data = array(
             "url" => "http://192.168.10.19/send_mail",
             "param" => array(
                 "username" => 'test',
-                "password" => 'test'
+                "password" => $test
             )
         );
         $client = new SwooleClient();
