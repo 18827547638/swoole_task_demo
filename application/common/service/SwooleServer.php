@@ -41,7 +41,7 @@ class SwooleServer extends Server
         } catch(\Exception $e) {
             Log::debug('swoole测试');
         }
-        $serv->finish("-> OK");
+//        $serv->finish("-> OK");
 //        $array = json_decode($data, true);
 //        db('system')->insertGetId(['type'=>'swoole','key'=>'测试','value'=>time()]);
 //        return time();
