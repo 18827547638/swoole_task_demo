@@ -14,7 +14,7 @@ use think\swoole\Server;
 class SwooleServer extends Server
 {
     private $serv;
-    protected $host = '127.0.0.1';
+    protected $host = '0.0.0.0';
     protected $port = 9502;
     protected $serverType = 'socket';
     protected $mode = SWOOLE_PROCESS;
@@ -28,6 +28,7 @@ class SwooleServer extends Server
     public function onReceive(swoole_server $serv, $fd, $from_id, $data)
     {
         echo "Get Message From Client {$fd}:{$data}\n";
+        db('system')->insertGetId(['type'=>'swoole','key'=>'测试','value'=>time()]);
         // send a task to task worker.
         file_put_contents('zg_swwole.txt',$data);
         $serv->task($data);
