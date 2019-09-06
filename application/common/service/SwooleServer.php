@@ -34,7 +34,7 @@ class SwooleServer extends Server
 
     public function onTask($serv, $task_id, $from_id, $data)
     {
-        echo "接收异步任务[id=$task_id]".PHP_EOL;
+        /*echo "接收异步任务[id=$task_id]".PHP_EOL;
         for ($i = 0 ; $i<10000;$i++){
             if($i%2==0){
                 echo 'send'.$i.' success'."\n";
@@ -42,7 +42,9 @@ class SwooleServer extends Server
                 echo 'send'.$i.' fail'."\n";
             }
             sleep(1);
-        }
+        }*/
+        echo "接收异步任务[id=$task_id]".PHP_EOL;
+        echo json_encode($data);
 
         $serv->finish("$data -> OK");
 //        $array = json_decode($data, true);
