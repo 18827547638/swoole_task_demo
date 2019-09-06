@@ -46,4 +46,9 @@ class SwooleServer extends Server
         echo "Task {$task_id} finish\n";
         echo "Result: {$data}\n";
     }
+
+    public function onMessage($serv, $frame)
+    {
+        echo "onMessage\n";
+    }
 }
