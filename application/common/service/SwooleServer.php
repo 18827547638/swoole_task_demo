@@ -44,7 +44,7 @@ class SwooleServer extends Server
             sleep(1);
         }*/
         echo "接收异步任务[id=$task_id]".PHP_EOL;
-        echo "参数".$data['url'].PHP_EOL;
+        echo "参数".$data.PHP_EOL;
 
         $serv->finish("$data -> OK");
 //        $array = json_decode($data, true);
