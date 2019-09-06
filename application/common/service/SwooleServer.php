@@ -16,7 +16,7 @@ class SwooleServer extends Server
     private $serv;
     protected $host = '0.0.0.0';
     protected $port = 9508;
-    protected $serverType = 'socket';
+    protected $serverType = 'websocket';
     protected $mode = SWOOLE_PROCESS;
     protected $socketType = SWOOLE_SOCK_TCP;
     protected $option = [
@@ -27,18 +27,26 @@ class SwooleServer extends Server
 
     public function onReceive(swoole_server $serv, $fd, $from_id, $data)
     {
-        echo "Get Message From Client {$fd}:{$data}\n";
-        db('system')->insertGetId(['type'=>'swoole','key'=>'测试','value'=>time()]);
-        // send a task to task worker.
-        file_put_contents('zg_swwole.txt',$data);
-        $serv->task($data);
+        $task_id = $serv->task("Async");
+        echo "开始投递异步任务 id=$task_id\n";
     }
 
     public function onTask($serv, $task_id, $from_id, $data)
     {
-        $array = json_decode($data, true);
-        db('system')->insertGetId(['type'=>'swoole','key'=>'测试','value'=>time()]);
-        return time();
+        echo "接收异步任务[id=$task_id]".PHP_EOL;
+        for ($i = 0 ; $i<10000;$i++){
+            if($i%2==0){
+                echo 'send'.$i.' success'."\n";
+            }else{
+                echo 'send'.$i.' fail'."\n";
+            }
+            sleep(1);
+        }
+
+        $serv->finish("$data -> OK");
+//        $array = json_decode($data, true);
+//        db('system')->insertGetId(['type'=>'swoole','key'=>'测试','value'=>time()]);
+//        return time();
 //        if ($array['url']) {
 //            return $this->httpGet($array['url'], $array['param']);
 //        }
@@ -46,8 +54,7 @@ class SwooleServer extends Server
 
     public function onFinish($serv, $task_id, $data)
     {
-        echo "Task {$task_id} finish\n";
-        echo "Result: {$data}\n";
+        echo "异步任务[id=$task_id]完成".PHP_EOL;
     }
 
     public function onMessage($serv, $frame)
