@@ -9,11 +9,12 @@
 namespace app\common\service;
 
 
+use think\Exception;
+use think\facade\Log;
 use think\swoole\Server;
 
 class SwooleServer extends Server
 {
-    private $serv;
     protected $host = '0.0.0.0';
     protected $port = 9508;
     protected $serverType = 'websocket';
@@ -21,7 +22,6 @@ class SwooleServer extends Server
     protected $socketType = SWOOLE_SOCK_TCP;
     protected $option = [
         'worker_num'=> 4,
-//        'daemonize'	=> true,
         'backlog'	=> 128,
         'task_worker_num' => 4
     ];
@@ -34,18 +34,13 @@ class SwooleServer extends Server
 
     public function onTask($serv, $task_id, $from_id, $data)
     {
-        /*echo "接收异步任务[id=$task_id]".PHP_EOL;
-        for ($i = 0 ; $i<10000;$i++){
-            if($i%2==0){
-                echo 'send'.$i.' success'."\n";
-            }else{
-                echo 'send'.$i.' fail'."\n";
-            }
-            sleep(1);
-        }*/
-        echo "接收异步任务[id=$task_id]".PHP_EOL;
-        echo "参数".json_encode($data).PHP_EOL;
-
+        try {
+            echo "接收异步任务[id=$task_id]".PHP_EOL;
+            echo "参数".json_encode($data).PHP_EOL;
+            echo $data['zg'];
+        } catch(\Exception $e) {
+            Log::debug('swoole测试');
+        }
         $serv->finish("-> OK");
 //        $array = json_decode($data, true);
 //        db('system')->insertGetId(['type'=>'swoole','key'=>'测试','value'=>time()]);
