@@ -144,23 +144,12 @@ return [
   'exception_handle'       => function ($e) {
       return json_error($e->getMessage(), $e->getCode(),$e->getMessage().$e->getLine().$e->getFile());
   },
-    'bmap_ak'=>'oomwweYl9bCuM4aSZOtxaSurCpCeSRFz',
-    //合约地址配置
-    'ether' => [
-        'contract_address' => '0x2f3bf5fbd971b508bdd34b040ca6d060804df2a0',//合约地址
-        'local_address'    => '0x2e4d6b15b1ab17f6279e42f52b3b483ea19a220a',//本地地址
-        'sign'             => '0x70a08231', //函数签名
-        'gas'              => '0x13880', //Gas Limit
-        'gasPrice'         => '0x2540BE400',//手续费价格
-        'value'            => '0x0',
-        'ip'               => '47.244.121.211',//钱包服务器ip地址
-        'port'             => '8545',//rpc端口
-        'decimals'         => 8,//小数点
-    ],
-    'img_domin' => 'http://api.lmsggdc.com',
+    'bmap_ak'=>'',
+
+    'img_domin' => '',
     //七牛云配置
-    'QINIU_ACCESS_KEY' => '4RemFHRm9YRGOOEKzgx74sebgTueUTMkXAS_YziZ',
-    'QINIU_SECRET_KEY' => '4msyKLnJLBPi7004yhdAmSVY1FtB2x12lFkwbQCG',
-    'QINIU_BUCKET' => 'lms_ggdc',
-    'QINIU_DOMIN' => 'http://image.100ncy.net'
+    'QINIU_ACCESS_KEY' => '',
+    'QINIU_SECRET_KEY' => '',
+    'QINIU_BUCKET' => '',
+    'QINIU_DOMIN' => ''
 ];

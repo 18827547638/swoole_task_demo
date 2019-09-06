@@ -12,7 +12,7 @@ return [
     //  安全相关配置文件，此处配置通常为敏感配置
     //  不建议上传到git
     // +-----------------------------
-    'token_salt'      =>      'lms_good_xcx',
-    'admin_salt'      =>      'momocampus',
-    'pay_back_url'    =>      'https://www.momocampus.com/api/v1/pay/notify'
+    'token_salt'      =>      '',
+    'admin_salt'      =>      '',
+    'pay_back_url'    =>      ''
 ];
