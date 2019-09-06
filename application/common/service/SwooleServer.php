@@ -28,7 +28,7 @@ class SwooleServer extends Server
 
     public function onReceive($serv, $fd, $from_id, $data)
     {
-        $task_id = $serv->task("Async");
+        $task_id = $serv->task($data);
         echo "开始投递异步任务 id=$task_id\n";
     }
 
