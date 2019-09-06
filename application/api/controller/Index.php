@@ -23,7 +23,7 @@ class Index
         );
         $client = new SwooleClient();
         $client->connect();
-        if ($client->send($data)) {
+        if ($client->send($data . PHP_EOL)) {
             echo 'success';
         } else {
             echo 'fail';

@@ -36,6 +36,8 @@ class SwooleServer extends Server
     {
         try {
             echo "接收异步任务[id=$task_id]".PHP_EOL;
+            $db = new SwooleMysql();
+            $data = $db->exec("select * from lp_activity where id = 1");
             echo "参数".json_encode($data).PHP_EOL;
         } catch(\Exception $e) {
             Log::debug('swoole测试');
