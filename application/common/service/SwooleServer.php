@@ -54,4 +54,11 @@ class SwooleServer extends Server
     {
         echo "onMessage\n";
     }
+    public function onStart($serv)
+    {
+        echo "start\n";
+    }
+    public function onClose($ser, $fd) {
+        echo "client {$fd} closed\n";
+    }
 }
