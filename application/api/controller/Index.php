@@ -9,7 +9,6 @@
 namespace app\api\controller;
 
 use app\common\service\SwooleClient;
-use think\swoole\facade\Task;
 class Index
 {
     public function hello()
